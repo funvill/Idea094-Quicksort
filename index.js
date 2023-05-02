@@ -29,6 +29,7 @@ function SaveAnswer(answer, element1, element2) {
 // Format is: "1 vs 2 == 1" or "1 vs 2 == 2"
 // Being lazy here, reload the file each time, and search for the 4 different combinations
 function SearchForAnswer(element1, element2) {
+  if (element1.index == element2.index) { return true; } // Same element
   try {
     var answers = fs.readFileSync(FILE_ANSWERS).toString();
   } catch (e) {
@@ -80,6 +81,9 @@ function Question(element1, element2) {
 }
 
 function swap(array, i, j) {
+  if (i == j) { return; }
+  console.log("FYI: Swap Idea #" + array[i].index +" (Pos: "+i+")" + " <=> Idea #" + array[j].index +" (Pos: "+j+")");
+
   var temp = array[i];
   array[i] = array[j];
   array[j] = temp;
@@ -156,12 +160,57 @@ function Heapify(array, n, i) {
   }
 }
 
+// Average case O(n log n)
+// Worse case O(n^2)
+function QuickSort(array) {
+  return QuickSortRecursive(array, 0, array.length - 1);
+}
+
+function QuickSortRecursive(array, low, high) {
+  if (low < high) {
+    var pi = Partition(array, low, high);
+    QuickSortRecursive(array, low, pi - 1);
+    QuickSortRecursive(array, pi + 1, high);
+  }
+  return array;
+}
+
+function Partition(array, low, high) {
+  var pivot = array[high];
+  var i = low - 1;
+  for (var j = low; j <= high - 1; j++) {
+    if (Question(array[j], pivot)) {
+      questionCount++;
+      i++;
+      swap(array, i, j);
+    }
+  }
+  swap(array, i + 1, high);
+  return i + 1;
+}
+
+
+
+
+
+
+
+
+
 // This is the sorting algorithm to sort the list of elements
 // returns the sorted array.
 function SortQuestions(array) {
   // return HeapSort(array);
-  return BubbleSort(array);
+  // return BubbleSort(array);
+  return QuickSort(array);
 }
+
+
+
+
+
+
+
 
 function WriteSortedElementsToFile(sorted) {
 
@@ -187,7 +236,8 @@ function LoadElmentsFromFile(filename) {
   // Extract the index and value
   for (var i = 0; i < unsorted.length; i++) {
     var index = unsorted[i].split(") - ")[0].replace("(", "");
-    var value = unsorted[i].split(") - ")[1].trim();
+    var value = "" + unsorted[i].split(") - ")[1];
+    value.trim();
 
     // Strip any non alpha numeric characters
     value = value.replace(/[^a-zA-Z0-9 \-]/g, "");
@@ -206,17 +256,21 @@ var unsorted = LoadElmentsFromFile(FILE_ELEMENTS);
 console.log("Unsorted: ", unsorted);
 
 // Tell the users the max amount of questions they will be asked based on QuickSort algorithm 
-// Average case: O(n log n)
-// Worst case: O(n log n)
+// Average case O(n log n)
+// Worse case O(n^2)
 const elment_count = unsorted.length;
 var average_number_of_questions = Math.round(elment_count * Math.log(elment_count));
-var worst_number_of_questions = Math.round(elment_count * Math.log(elment_count));
+var worst_number_of_questions = Math.round(elment_count * Math.log2(elment_count));
 
 console.log("You will be asked " + worst_number_of_questions + " questions at most, average of: " + average_number_of_questions);
 
 // Count the number of lines in the answers file
-var answer_count = fs.readFileSync(FILE_ANSWERS).toString().split("\n").length;
-console.log("You have already answered " + answer_count + " questions");
+try {
+  var answer_count = fs.readFileSync(FILE_ANSWERS).toString().split("\n").length;
+  console.log("You have already answered " + answer_count + " questions");
+} catch (e) {
+  console.log("You have not answered any questions yet");
+}
 
 var sorted = SortQuestions(unsorted);
 console.log('Sorted: ', sorted);
