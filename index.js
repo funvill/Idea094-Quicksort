@@ -82,7 +82,7 @@ function Question(element1, element2) {
 
 function swap(array, i, j) {
   if (i == j) { return; }
-  console.log("FYI: Swap Idea #" + array[i].index +" (Pos: "+i+")" + " <=> Idea #" + array[j].index +" (Pos: "+j+")");
+  console.log("FYI: Swap Idea #" + array[i].index + " (Pos: " + i + ")" + " <=> Idea #" + array[j].index + " (Pos: " + j + ")");
 
   var temp = array[i];
   array[i] = array[j];
@@ -94,16 +94,17 @@ function swap(array, i, j) {
 // Bubble sort the array, worse case O(n^2), best case O(n)
 // This is the easist to implement, but not the most efficient, used it to 
 // get the project started
-function BubbleSort(array) {
+function BubbleSort(array, stopOnFirstSwap = false) {
   var swapped;
   do {
     swapped = false;
     for (var i = 0; i < array.length - 1; i++) {
+      questionCount++;
       if (!Question(array[i], array[i + 1])) {
         swap(array, i, i + 1);
         swapped = true;
         console.log("\n");
-        questionCount++;
+        if (stopOnFirstSwap) { return array; }
       }
     }
   } while (swapped);
@@ -140,15 +141,15 @@ function Heapify(array, n, i) {
   var r = 2 * i + 2; // right = 2*i + 2
 
   // If left child is larger than root
+  questionCount++;
   if (l < n && Question(array[largest], array[l])) {
     largest = l;
-    questionCount++;
   }
 
   // If right child is larger than largest so far
+  questionCount++;
   if (r < n && Question(array[largest], array[r])) {
     largest = r;
-    questionCount++;
   }
 
   // If largest is not root
@@ -179,8 +180,8 @@ function Partition(array, low, high) {
   var pivot = array[high];
   var i = low - 1;
   for (var j = low; j <= high - 1; j++) {
+    questionCount++;
     if (Question(array[j], pivot)) {
-      questionCount++;
       i++;
       swap(array, i, j);
     }
@@ -190,13 +191,6 @@ function Partition(array, low, high) {
 }
 
 
-
-
-
-
-
-
-
 // This is the sorting algorithm to sort the list of elements
 // returns the sorted array.
 function SortQuestions(array) {
@@ -204,13 +198,6 @@ function SortQuestions(array) {
   // return BubbleSort(array);
   return QuickSort(array);
 }
-
-
-
-
-
-
-
 
 function WriteSortedElementsToFile(sorted) {
 
@@ -270,6 +257,20 @@ try {
   console.log("You have already answered " + answer_count + " questions");
 } catch (e) {
   console.log("You have not answered any questions yet");
+}
+
+
+// Because of the way that QuickSort works. 
+// If the list is already sorted then the number of questions asked will be the worst case.
+// So we try and do a bubble sort first to see if the list is already sorted.
+// If it is then we can skip the questions.
+var sorted = BubbleSort(unsorted, true);
+if (sorted == unsorted) {
+  console.log("The list is already sorted");
+  console.log("No questions will be asked");
+  console.log("Saving sorted list to file: " + FILE_ELEMENTS);
+  WriteSortedElementsToFile(sorted);
+  return;
 }
 
 var sorted = SortQuestions(unsorted);

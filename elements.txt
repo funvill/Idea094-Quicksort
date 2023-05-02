@@ -3,19 +3,19 @@
 63) - Day 063 - RootedIn - A generated a social media platform for trees in a city
 46) - Day 046 - Cherry Blossom Timelapse - Take several time lapse videos of the Cherry Blossom park while its blooming
 30) - Day 030 - Chatbot Journaling - A chatbot that gives you writing prompts for daily journaling Ask follow up questions for clarity Builds a web of knowledge about you and gives feedback
+6) - Day 006 - Procedurally generated Glowing Mushroom PCB - Procedurally generated Art PCB of mushrooms for the GameOfShrroms art project Backlit LEDs to add a nice glowing effect
 85) - Day 085 - Carved wooden postcards - Sending a Baltic birch plywood postcard via the Canadian post of every mammal in BC
 10) - Day 010 - Polyhedron Papercraft Mobile - Create a mobile of regular polyhedrons and other geometry shapes using paper craft
 89) - Day 089 - Wheres Wren - A Wheres Waldo hunt and search photo book that teaches people how to ID local species of birds
 94) - Day 094 - Quickest way to rank a list of ideas - Use a sorting algorithm to efficiently sort a list of ideasprojectspeoplethings in order
 65) - Day 065 - Atari Space Invaders LED Matrix pendent - A necklace penchant that has a LED matrix that displays Atari Space Invaders animations
 50) - Day 050 - Tessellating Illuminated Origami Wall Sculpture - Origami Sacred Geometry  Individually addressable RGB LEDs  Wall Sculpture  interactive
-6) - Day 006 - Procedurally generated Glowing Mushroom PCB - Procedurally generated Art PCB of mushrooms for the GameOfShrroms art project Backlit LEDs to add a nice glowing effect
 73) - Day 073 - Glowing tentacle eyeball monster - Glowing tentacle monster made out of flexible vinyl ducting and LEDs
 2) - Day 002 - Electronic Flute PCB - A product for music lovers and DIY enthusiasts alike This PCB is designed to be a customizable electronic flute that uses a tiny mems microphone and several buttons to create sound
+22) - Day 022 - Translink map PCB - A live interactive translink metro map of Vancouver using LEDs on a PCB
 3) - Day 003 - PCB Art of Every Mammal in BC - A series of PCB art badges one for each mammal in BC Each badge has a small sensor and some LEDs that relate to the mammal Make a limited edition series of each mammal and show off the series at an art show
 91) - Day 091 - Honeypot terrarium - Visualization of robots as they attack critical infrastructure
 70) - Day 070 - CNC Pointillism - Use a CNC to make paint dot paintings one dot at a time
-22) - Day 022 - Translink map PCB - A live interactive translink metro map of Vancouver using LEDs on a PCB
 90) - Day 090 - Dead Bug electronic circuits jigs - Create a series of 3D printed jigs for making exploded electronic circuits without PCBs
 4) - Day 004 - Universal Serial breakout board - A single USB to Serial port board that supports many different physical layers TTL 33v 5v RS232 RS485 2wire and 4 wire DB9 DB25 Screw down terminals etc
 19) - Day 019 - Big Red Button - Create a series of buttons with labels install them around the city see what ones get pushed most
@@ -41,6 +41,7 @@
 11) - Day 011 - Birdhouse Crypto Puzzle - Homes for birds and puzzles for humans
 44) - Day 044 - Bio Punk Conference badge - A electronic badge that lets you mix your badges pets DNA with others
 8) - Day 008 - Reconnect a post card project - People are disconnected more than ever and need a reason to reconnect with each other Create a series of postcards and send packs of them to friends and family for them to send onwards
+83) - Day 083 - Dried flower art installation - A staircase tunnel of glowing dried flowers
 43) - Day 043 - BACnet MSTP Testing conference Badge - A convention badge for BACnet plugfest that is useful for testing
 41) - Day 041 - BioPunks Garden - Youre a Biopunk building their garden by selectively breeding for DNA markers in plants
 88) - Day 088 - Glass room of perspectives - A art installation where a user enters a room that looks like the inside of a kaleidoscope
@@ -51,7 +52,6 @@
 36) - Day 036 - Kaleidoscope Chandler - Light shines through colored glass that rotates to produce washes of colors on the ceiling
 33) - Day 033 - AI Grant Writing - Use AI to help with labor intensive grant writing
 21) - Day 021 - AI auto summarization  Auto cliffsnotes - Use AI to summarize large amounts of information into brief notes and key points
-83) - Day 083 - Dried flower art installation - A staircase tunnel of glowing dried flowers
 38) - Day 038 - Club House co-op - Membership owned club house that can be used for members use
 76) - Day 076 - The Vancouver Tone - Give Vancouver its own unique tone by installing wind chime like devices in the trees across the city
 67) - Day 067 - Deadmans vault SAAS SafePassage - End-to-end encrypted digital vault for storing and sharing sensitive information after death
